@@ -6,6 +6,9 @@ var express = require('express'),
 		path = require('path'),
 		port = process.env.PORT || 3000;
 
+// require and load dotenv
+require('dotenv').load();
+
 // configure bodyParser (for receiving form data)
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -18,3 +21,5 @@ app.set('view engine', 'hbs');
 
 // connect to mongodb
 mongoose.connect( process.env.MONGOLAB_URI || process.env.MONGOHQ_URL || 'mongodb://localhost/parent-app');
+
+var User = require('./models/user');
