@@ -3,6 +3,7 @@ var express = require('express'),
 		bodyParser = require('body-parser'),
 		hbs = require('hbs'),
 		mongoose = require('mongoose'),
+		auth = require('./resources/auth'),
 		path = require('path'),
 		port = process.env.PORT || 3000;
 
