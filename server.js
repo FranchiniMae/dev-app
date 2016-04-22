@@ -4,6 +4,7 @@ var express = require('express'),
 		hbs = require('hbs'),
 		mongoose = require('mongoose'),
 		auth = require('./resources/auth'),
+		routes = require('./config/routes'),
 		path = require('path'),
 		port = process.env.PORT || 3000;
 
@@ -19,6 +20,9 @@ app.use(express.static(__dirname + '/public'));
 
 // set view engine to hbs (handlebars)
 app.set('view engine', 'hbs');
+
+//routes
+app.use(routes);
 
 // connect to mongodb
 mongoose.connect( process.env.MONGOLAB_URI || process.env.MONGOHQ_URL || 'mongodb://localhost/parent-app');
