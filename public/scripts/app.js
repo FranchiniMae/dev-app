@@ -1,7 +1,7 @@
 console.log('app.js linked');
 
 angular
-  .module('parentApp', [
+  .module('hiringDevApp', [
     'ui.router',
     'satellizer'
   ])
