@@ -37,6 +37,20 @@ delete: function (req, res) {
 			res.json(deletedPost);
 		}
 	});
+},
+
+update: function (req, res) {
+	var id = req.params.id;
+	console.log('id from edit', id);
+	Post.findById({_id: id}, function (err, foundPost) {
+		if (err) console.log(err);
+		foundPost.title = req.body.title;
+		foundPost.description = req.body.description;
+		foundPost.save(function (err, savedPost) {
+			if (err) { console.log (err);}
+			res.json(savedPost);
+		});
+	});
 }
 
 };

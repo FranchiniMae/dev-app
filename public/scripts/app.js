@@ -194,6 +194,14 @@ function ProfileController ($location, Account, $http) {
             vm.posts.splice(index,1);
           });
       };
+
+      vm.updatePost = function(post) {
+        var updatedPost = post;
+        $http.put('/api/posts/' + post._id, updatedPost)
+          .then(function (response) {
+            post.showEditForm = false;
+          });
+      };
   });
 
   vm.updateProfile = function() {
