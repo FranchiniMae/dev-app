@@ -54,16 +54,6 @@ app.put('/api/me', auth.ensureAuthenticated, function (req, res) {
   });
 });
 
-app.get('/api/me/posts', auth.ensureAuthenticated, function (req, res) {
-  console.log('req.user', req.user);
-  User.findById({_id: req.user}, function (err, user) {
-    Post.find({_id: {$in: user.posts}}, function(err, posts) {
-      if (err) console.log(err);
-      res.send(posts);
-    });
-  });
-});
-
 
 /*
  * Auth Routes
