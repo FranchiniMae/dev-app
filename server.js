@@ -25,7 +25,7 @@ app.set('view engine', 'hbs');
 app.use(routes);
 
 // connect to mongodb
-mongoose.connect( process.env.MONGOLAB_URI || process.env.MONGOHQ_URL || 'mongodb://localhost/parent-app');
+mongoose.connect( process.env.MONGOLAB_URI || process.env.MONGOHQ_URL || 'mongodb://localhost/dev-app');
 
 var User = require('./models/user');
 

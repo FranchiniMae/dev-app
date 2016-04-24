@@ -9,7 +9,7 @@ var userSchema = new Schema({
   password: { type: String, select: false },
   username: { type: String },
   picture: String,
-  children: [{ type: Schema.Types.ObjectId, ref: 'Children' }]
+  posts: [{ type: Schema.Types.ObjectId, ref: 'Post' }]
 });
 
 userSchema.pre('save', function (next) {
