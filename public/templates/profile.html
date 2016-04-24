@@ -3,7 +3,16 @@
 <p><strong>Email:</strong> {{main.currentUser().email}}</p>
 <p><strong>Username:</strong> {{main.currentUser().username}}</p>
 <p><strong>Joined:</strong> {{main.currentUser().created | date:'MMMM dd, yyyy'}}</p>
-<!-- <p><strong>Posts:</strong> {{main.currentUser().posts.length}}</p> -->
+
+{{main.currentUser().posts}}
+
+<div ng-if="profile.posts.length > 0">
+  <div ng-repeat="post in profile.posts">
+    <p><strong>{{post.title}}</strong> - {{post.description}}</p><br>
+  </div>
+</div>
+
+
 
 <hr>
 

@@ -1,4 +1,5 @@
 var Post = require('../models/post');
+var User = require('../models/user');
 
 var postsController = {
 
@@ -10,12 +11,19 @@ index: function (req, res) {
 },
 
 create: function (req, res) {
-	console.log('creating post');
-	var title = req.body.title;
-	var description = req.body.description;
-	Post.create({title: title, description: description}, function (err, newPost) {
-		console.log(newPost);
-		err ? console.log(err) : res.json(newPost);
+
+	User.findById(req.user, function (err, user) {
+		var newPost = new Post (req.body);
+		newPost.save(function (err, savedPost) {
+			if (err) {
+				res.status(500).json({ error: err.message});
+			} else {
+				user.posts.push(newPost);
+				user.save();
+				res.json(savedPost);
+				console.log('post saved under user');
+			}
+		});
 	});
 }
 
