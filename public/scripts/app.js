@@ -183,7 +183,6 @@ function ProfileController ($location, Account, $http) {
   $http.get('/api/me/posts')
     .then(function (response) {
       vm.posts = response.data;
-      console.log('response', response.data);
 
       vm.deletePost = function(post) {
         console.log('post from delete', post);
