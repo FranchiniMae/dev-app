@@ -15,11 +15,11 @@
 	<form ng-show="main.currentUser()" ng-submit="home.createPost()">
 		<div class="form-group">
 			<label for="post-title">Job Title</label>
-		  <input type="text" ng-model="home.new_post.title" class="form-control" id="post-title" placeholder="Make sure it's creative!">
+		  <input type="text" ng-model="home.new_post.title" class="form-control" id="post-title" placeholder="Job Title">
 		</div>
 	  <div class="form-group">
-	  	<label for="post-content">Job Description</label>
-	    <textarea ng-model="home.new_post.content" class="form-control" id="post-content" placeholder="Share your thoughts."></textarea>
+	  	<label for="post-description">Job Description</label>
+	    <textarea ng-model="home.new_post.description" class="form-control" id="post-description" placeholder="Job Description"></textarea>
 	  </div>
 	  <input type="submit" value="Add Post" class="btn btn-block btn-info">
 	</form>
