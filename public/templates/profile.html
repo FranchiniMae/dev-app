@@ -4,12 +4,6 @@
 <p><strong>Username:</strong> {{main.currentUser().username}}</p>
 <p><strong>Joined:</strong> {{main.currentUser().created | date:'MMMM dd, yyyy'}}</p>
 
-<div ng-if="profile.posts.length > 0">
-  <div ng-repeat="post in profile.posts">
-    <p><strong>{{post.title}}</strong> - {{post.description}}</p><br>
-  </div>
-</div>
-
 <hr>
 
 <a href="#" ng-click="profile.showEditForm=true" ng-hide="profile.showEditForm" class="btn btn-default"><i class="fa fa-pencil"></i> Edit Profile</a>
@@ -33,3 +27,11 @@
   <input type="submit" value="Edit Profile" class="btn btn-info">&nbsp;
   <button ng-click="profile.showEditForm=false" class="btn btn-default">Cancel</button>
 </form>
+
+<br><br>
+
+<div ng-if="profile.posts.length > 0">
+  <div ng-repeat="post in profile.posts">
+    <p><strong>{{post.title}}</strong> - {{post.description}}</p><br>
+  </div>
+</div>
