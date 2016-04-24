@@ -11,6 +11,9 @@ router.route('/api/posts')
 	.get(postsController.index)
 	.post(auth.ensureAuthenticated, postsController.create);
 
+router.route('/api/posts/:id')
+	.delete(postsController.delete);
+
 router.route('/api/me/posts')
 	.get(auth.ensureAuthenticated, usersController.showPosts);
 

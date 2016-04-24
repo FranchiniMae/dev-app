@@ -25,6 +25,18 @@ create: function (req, res) {
 			}
 		});
 	});
+},
+
+delete: function (req, res) {
+	var id = req.params.id;
+	console.log('id from delete', id);
+	Post.findOneAndRemove({_id: id}, function (err, deletedPost) {
+		if (err) {
+			res.status(500).json({ error: err.message});
+		} else {
+			res.json(deletedPost);
+		}
+	});
 }
 
 };

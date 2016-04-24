@@ -32,6 +32,7 @@
 
 <div ng-if="profile.posts.length > 0">
   <div ng-repeat="post in profile.posts">
-    <p><strong>{{post.title}}</strong> - {{post.description}}</p><br>
+    <p><strong>{{post.title}}</strong> - {{post.description}} <i class="fa fa-close" ng-click="profile.deletePost(post)"></i></p>
+    <br>
   </div>
 </div>

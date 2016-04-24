@@ -184,6 +184,16 @@ function ProfileController ($location, Account, $http) {
     .then(function (response) {
       vm.posts = response.data;
       console.log('response', response.data);
+
+      vm.deletePost = function(post) {
+        console.log('post from delete', post);
+        var postId = post._id;
+        $http.delete('/api/posts/' + postId)
+          .then(function(response) {
+            var index = vm.posts.indexOf(post);
+            vm.posts.splice(index,1);
+          });
+      };
   });
 
   vm.updateProfile = function() {
