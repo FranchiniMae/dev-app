@@ -7,5 +7,8 @@ var express = require('express'),
     usersController = require('../controllers/usersController'),
     postsController = require('../controllers/postsController');
 
+router.route('/api/posts')
+	.get(postsController.index)
+	.post(auth.ensureAuthenticated, postsController.create);
 
-    module.exports = router;
+module.exports = router;
