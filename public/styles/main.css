@@ -58,3 +58,10 @@ h3 {
 	background: #7E8E9C;
 	border-radius: 0px;
 }
+
+.save {
+	color: #7BCC70;
+}
+.cancel {
+	color: #E2A2A2;
+}

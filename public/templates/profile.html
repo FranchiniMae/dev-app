@@ -31,8 +31,8 @@
   <input id="profileimg" type="hidden" role="uploadcare-uploader"
        data-crop="disabled" />
   <br><br>
-  <input type="submit" value="Save" class="btn btn-default">&nbsp;
-  <button ng-click="profile.showEditForm=false" class="btn btn-default">Cancel</button>
+  <input type="submit" value="Save" class="btn btn-default save">&nbsp;
+  <button ng-click="profile.showEditForm=false" class="btn btn-default cancel">Cancel</button>
   </div>
 </form>
 
@@ -55,8 +55,8 @@
       <input type="text" class="form-control" placeholder="Job Description"
         ng-model="post.description">
     </div>
-    <input type="submit" value="Save Post" class="btn btn-info">&nbsp;
-    <button ng-click="post.showEditForm=false" class="btn btn-default">Cancel</button><br><br>
+    <input type="submit" value="Save" class="btn btn-default save">&nbsp;
+    <button ng-click="post.showEditForm=false" class="btn btn-default cancel">Cancel</button><br><br>
   </form>
   </div>
 </div>
