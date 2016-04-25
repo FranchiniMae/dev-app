@@ -18,3 +18,8 @@ h3 {
 .navbar-default .navbar-nav > li > a {
 	color: white;
 }
+
+.btn-info {
+	background-color: #B9B87F;
+	border-color: #B9B87F;
+}
