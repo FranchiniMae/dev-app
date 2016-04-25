@@ -5,6 +5,7 @@ h3 {
 #publictitle {
 	color: #B9B87F;
 }
+/********** NAV BAR **************/
 
 .navbar-default{
 	background-color: #4F6A8C;
@@ -22,4 +23,10 @@ h3 {
 .btn-info {
 	background-color: #B9B87F;
 	border-color: #B9B87F;
+}
+
+/********** HOME TEMPLATE *************/
+
+#job-title {
+	color: #96979A;
 }
