@@ -10,6 +10,7 @@ h3 {
 .navbar-default{
 	background-color: #4F6A8C;
 	border-color: #4F6A8C;
+	border-radius: 0px;
 }
 
 .navbar-default .navbar-brand {
