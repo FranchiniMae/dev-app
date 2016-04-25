@@ -149,10 +149,12 @@ function LoginController ($location, Account) {
 
 SignupController.$inject = ["$location", "Account"]; // minification protection
 function SignupController ($location, Account) {
+  var widget = uploadcare.initialize('#profileimg');
   var vm = this;
   vm.new_user = {}; // form data
 
   vm.signup = function() {
+    vm.new_user.picture = $('#profileimg').val();
     Account
       .signup(vm.new_user)
       .then(
@@ -176,7 +178,7 @@ function LogoutController ($location, Account) {
 
 ProfileController.$inject = ["$location", "Account", "$http"]; // minification protection
 function ProfileController ($location, Account, $http) {
-  var vm = this;
+  var widget = uploadcare.initialize('#profileimg');  var vm = this;
   vm.new_profile = {}; // form data
   vm.posts = [];
 
@@ -204,6 +206,7 @@ function ProfileController ($location, Account, $http) {
   });
 
   vm.updateProfile = function() {
+    vm.new_profile.picture = $('#profileimg').val();
     Account
       .updateProfile(vm.new_profile)
       .then(function () {

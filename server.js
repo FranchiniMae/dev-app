@@ -48,6 +48,7 @@ app.put('/api/me', auth.ensureAuthenticated, function (req, res) {
     user.displayName = req.body.displayName || user.displayName;
     user.username = req.body.username || user.username;
     user.email = req.body.email || user.email;
+    user.picture = req.body.picture || user.picture;
     user.save(function(err) {
       res.send(user.populate('posts'));
     });
@@ -68,7 +69,8 @@ app.post('/auth/signup', function (req, res) {
       displayName: req.body.displayName,
       username: req.body.username,
       email: req.body.email,
-      password: req.body.password
+      password: req.body.password,
+      picture: req.body.picture
     });
     user.save(function (err, result) {
       if (err) {

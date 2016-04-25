@@ -5,6 +5,10 @@ h3 {
 #publictitle {
 	color: #B9B87F;
 }
+
+.centertext {
+	text-align: center;
+}
 /********** NAV BAR **************/
 
 .navbar-default{
