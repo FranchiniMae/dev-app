@@ -31,3 +31,9 @@ h3 {
 #job-title {
 	color: #96979A;
 }
+
+/********** PROFILE TEMPLATE ***********/
+
+.profile-btn {
+	border-radius: 0px;
+}

@@ -4,7 +4,7 @@
 <p><strong>Username:</strong> {{main.currentUser().username}}</p>
 <p><strong>Joined:</strong> {{main.currentUser().created | date:'MMMM dd, yyyy'}}</p><br>
 
-<a href="#" ng-click="profile.showEditForm=true" ng-hide="profile.showEditForm" class="btn btn-default"><i class="fa fa-pencil"></i> Edit Profile</a>
+<a href="#" ng-click="profile.showEditForm=true" ng-hide="profile.showEditForm" class="btn btn-default profile-btn"><i class="fa fa-pencil"></i> Edit Profile</a>
 
 <form ng-show="profile.showEditForm" ng-submit="profile.updateProfile()">
 	<div class="form-group">
