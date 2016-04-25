@@ -14,8 +14,6 @@
 
 <a href="#" ng-click="profile.showEditForm=true" ng-hide="profile.showEditForm" class="btn btn-default profile-btn"><i class="fa fa-pencil"></i> Edit Profile</a>
 
-</div>
-
 <form ng-show="profile.showEditForm" ng-submit="profile.updateProfile()">
 	<div class="form-group">
 	  <input type="text" class="form-control" placeholder="Full Name"
@@ -42,6 +40,8 @@
   <input type="submit" value="Edit Profile" class="btn btn-info">&nbsp;
   <button ng-click="profile.showEditForm=false" class="btn btn-default">Cancel</button>
 </form>
+
+</div>
 
 <div class="col-md-8">
 <h3>My Current Job Postings</h3>
