@@ -5,3 +5,16 @@ h3 {
 #publictitle {
 	color: #B9B87F;
 }
+
+.navbar-default{
+	background-color: #4F6A8C;
+	border-color: #4F6A8C;
+}
+
+.navbar-default .navbar-brand {
+	color: white;
+}
+
+.navbar-default .navbar-nav > li > a {
+	color: white;
+}
