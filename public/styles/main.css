@@ -9,6 +9,10 @@ h3 {
 .centertext {
 	text-align: center;
 }
+
+.btn {
+	border-radius: 0px;
+}
 /********** NAV BAR **************/
 
 .navbar-default{
