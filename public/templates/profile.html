@@ -15,11 +15,6 @@
 <a href="#" ng-click="profile.showEditForm=true" ng-hide="profile.showEditForm" class="btn btn-default profile-btn"><i class="fa fa-pencil"></i> Edit Profile</a>
 
 <form ng-show="profile.showEditForm" ng-submit="profile.updateProfile()">
-	<div class="form-group">
-	  <input type="text" class="form-control" placeholder="Full Name"
-      ng-model="profile.new_profile.displayName"
-        ng-value="main.currentUser().displayName">
-	</div>
   <div class="form-group">
     <input type="text" class="form-control" placeholder="Username"
       ng-model="profile.new_profile.username"
