@@ -8,12 +8,16 @@ var express = require('express'),
     postsController = require('../controllers/postsController');
 
 router.route('/api/posts')
-	.get(postsController.index)
+	.get(auth.ensureAuthenticated, postsController.index)
 	.post(auth.ensureAuthenticated, postsController.create);
+
+router.route('/api/favorites')
+    .get(auth.ensureAuthenticated, postsController.showfav);
 
 router.route('/api/posts/:id')
 	.delete(postsController.delete)
-	.put(postsController.update);
+	.put(postsController.update)
+    .post(auth.ensureAuthenticated, postsController.userfav);
 
 router.route('/api/me/posts')
 	.get(auth.ensureAuthenticated, usersController.showPosts);

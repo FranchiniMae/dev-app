@@ -128,8 +128,19 @@ function HomeController ($http) {
       .then(function (response) {
         vm.new_post = {};
         vm.posts.push(response.data);
+        console.log('response.data',response.data);
       });
   };
+
+  vm.favPost = function(post) {
+    console.log('postId', post._id);
+    var postId = post._id;
+    $http.post('/api/posts/' + post._id)
+      .then(function (response) {
+        console.log('favorites pushed into user');
+      });
+  };
+
 }
 
 LoginController.$inject = ["$location", "Account"]; // minification protection
@@ -181,6 +192,7 @@ function ProfileController ($location, Account, $http) {
   var widget = uploadcare.initialize('#profileimg');  var vm = this;
   vm.new_profile = {}; // form data
   vm.posts = [];
+  vm.favorites = [];
 
   $http.get('/api/me/posts')
     .then(function (response) {
@@ -213,6 +225,12 @@ function ProfileController ($location, Account, $http) {
         vm.showEditForm = false;
       });
   };
+
+  $http.get('/api/favorites')
+  .then(function(response) {
+    vm.favorites = response.data;
+    console.log('response frontshowpost', response.data);
+  });
 }
 
 //////////////

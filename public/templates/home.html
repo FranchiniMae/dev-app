@@ -9,7 +9,10 @@
 
 <div ng-if="home.posts.length > 0">
 	<div ng-repeat="post in home.posts">
-		<p> <strong id="job-title">{{post.title}}</strong> - {{post.description}}</p><br>
+		<p> <strong id="job-title">{{post.title}}</strong> - {{post.description}}</p>
+		<h4>Favorite this job: <a href="#" id="fav" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="fa fa-heart" id="empty-star" ng-click="home.favPost(post)"></span></a>
+
+		<br>
 	</div>
 </div>
 

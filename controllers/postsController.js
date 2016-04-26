@@ -10,6 +10,32 @@ index: function (req, res) {
 	});
 },
 
+showfav: function (req, res) {
+	User.findById({_id: req.user}, function (err, user) {
+		console.log('user from showfav', user.favorites);
+		Post.find({_id: {$in: user.favorites}}, function (err, favorites) {
+			if (err) console.log(err);
+			console.log('favorites', favorites);
+			res.send(favorites);
+		});
+	});
+},
+
+userfav: function (req, res) {
+	postId = req.params.id;
+	console.log('postId', postId);
+	User.findById({_id: req.user}, function (err, user) {
+		console.log('user', user);
+		console.log('indexOf', user.favorites.indexOf(postId));
+		if (user.favorites.indexOf(postId) === -1) {
+			user.favorites.push(postId);
+		}
+		user.save(function (err, user) {
+			res.send(user);
+		});
+	});
+},
+
 create: function (req, res) {
 
 	User.findById(req.user, function (err, user) {
@@ -54,7 +80,5 @@ update: function (req, res) {
 }
 
 };
-
-
 
 module.exports = postsController;
