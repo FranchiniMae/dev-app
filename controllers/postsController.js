@@ -36,6 +36,25 @@ userfav: function (req, res) {
 	});
 },
 
+removefav: function(req, res) {
+	var postId = req.params.id;
+	var userId = req.user;
+	User.findById({_id: userId}, function (err, user) {
+		console.log('userfavorites', user.favorites);
+		var favArray = user.favorites;
+		var favIndex = favArray.indexOf(postId);
+		if (favIndex > -1) {
+			favArray.splice(favIndex, 1);
+		}
+		user.save(function (err, user) {
+		res.send(user);
+		});
+	});
+	console.log('requser fav', req.user);
+	console.log('id backend fav', req.params.id);
+	//need to figure out how to remove ID without deleting it completely
+},
+
 create: function (req, res) {
 
 	User.findById(req.user, function (err, user) {

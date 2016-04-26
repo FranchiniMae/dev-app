@@ -14,6 +14,9 @@ router.route('/api/posts')
 router.route('/api/favorites')
     .get(auth.ensureAuthenticated, postsController.showfav);
 
+router.route('/api/favorites/:id')
+    .delete(auth.ensureAuthenticated, postsController.removefav);
+
 router.route('/api/posts/:id')
 	.delete(postsController.delete)
 	.put(postsController.update)

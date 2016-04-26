@@ -45,6 +45,10 @@ h3 {
 	color: #96979A;
 }
 
+#empty-heart {
+	color: grey;
+}
+
 /*.fa-heart {
 	color: white;
 	text-shadow: 0 0 3px #E2A2A2;

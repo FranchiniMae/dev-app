@@ -137,7 +137,17 @@ function HomeController ($http) {
     var postId = post._id;
     $http.post('/api/posts/' + post._id)
       .then(function (response) {
+        console.log('response from favorites', response.data.favorites);
         console.log('favorites pushed into user');
+      });
+  };
+
+  vm.removefav = function(post) {
+    console.log('post id', post._id);
+    var postId = post._id;
+    $http.delete('/api/favorites/' + post._id)
+      .then(function (response) {
+        console.log('removed favorite frontend');
       });
   };
 
