@@ -117,6 +117,7 @@ function HomeController ($http) {
   var vm = this;
   vm.posts = [];
   vm.new_post = {}; // form data
+  vm.favorites = [];
 
   $http.get('/api/posts')
     .then(function (response) {
@@ -148,6 +149,8 @@ function HomeController ($http) {
     $http.delete('/api/favorites/' + post._id)
       .then(function (response) {
         console.log('removed favorite frontend');
+        console.log('response removefav', response.data.favorites);
+        document.getElementById("empty-heart").style.color = "#337ab7";
       });
   };
 
