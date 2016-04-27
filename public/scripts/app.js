@@ -112,8 +112,8 @@ function MainController (Account) {
 
 }
 
-HomeController.$inject = ["$http"]; // minification protection
-function HomeController ($http) {
+HomeController.$inject = ["$http", "$scope"]; // minification protection
+function HomeController ($http, $scope) {
   var vm = this;
   vm.posts = [];
   vm.new_post = {}; // form data
@@ -134,24 +134,36 @@ function HomeController ($http) {
   };
 
   vm.favPost = function(post) {
-    console.log('postId', post._id);
-    var postId = post._id;
     $http.post('/api/posts/' + post._id)
       .then(function (response) {
-        console.log('response from favorites', response.data.favorites);
         console.log('favorites pushed into user');
+        console.log('this', $('#' + post._id));
+        $('#' + post._id).removeClass('fa-heart-o');
+        $('#' + post._id).addClass('fa-heart');
+        // $('#' + post._id).attr('ng-click', 'home.removefav(post)');
+        // //find a way to change ng-click after changing class
       });
   };
 
   vm.removefav = function(post) {
-    console.log('post id', post._id);
-    var postId = post._id;
     $http.delete('/api/favorites/' + post._id)
       .then(function (response) {
         console.log('removed favorite frontend');
-        console.log('response removefav', response.data.favorites);
-        document.getElementById("empty-heart").style.color = "#337ab7";
+        console.log('removetesting', $('#' + post._id));
+        $('#' + post._id).removeClass('fa-heart');
+        $('#' + post._id).addClass('fa-heart-o');
       });
+  };
+
+  var toggled = true;
+  $scope.toggle = function(post) {
+    console.log('post', post);
+    if (toggled) {
+      vm.favPost(post);
+    } else {
+      vm.removefav(post);
+    }
+    toggled = !toggled;
   };
 
 }

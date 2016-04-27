@@ -11,12 +11,12 @@
 	<div ng-repeat="post in home.posts">
 		<p> <strong id="job-title">{{post.title}}</strong> - {{post.description}}</p>
 
-		<div ng-show="main.currentUser().favorites.indexOf(post._id) === -1">
-		<h4>Favorite this job: <a href="#" id="fav" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="fa fa-heart" id="fav-heart" ng-click="home.favPost(post)"></span></a>
-		</div>
-		<div ng-show="main.currentUser().favorites.indexOf(post._id) !== -1">
-		<h4>Unfavorite: <a href="#" id="fav" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="fa fa-heart" id="empty-heart" ng-click="home.removefav(post)"></span></a>
-		</div>
+	<!-- 	<div ng-show="main.currentUser().favorites.indexOf(post._id) === -1"> -->
+		<h4>Favorite this job: <a href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="fa fa-heart-o" data-id={{post._id}} ng-click="toggle(post);"></span></a>
+<!-- 		</div> -->
+<!-- 		<div ng-show="main.currentUser().favorites.indexOf(post._id) !== -1">
+		<h4>Unfavorite: <a href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="fa fa-heart" data-id={{post._id}} ng-click="home.removefav(post)"></span></a>
+		</div> -->
 
 		<br>
 	</div>
