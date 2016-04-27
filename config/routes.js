@@ -8,7 +8,7 @@ var express = require('express'),
     postsController = require('../controllers/postsController');
 
 router.route('/api/posts')
-	.get(auth.ensureAuthenticated, postsController.index)
+	.get(postsController.index)
 	.post(auth.ensureAuthenticated, postsController.create);
 
 router.route('/api/favorites')
