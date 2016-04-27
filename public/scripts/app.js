@@ -136,12 +136,11 @@ function HomeController ($http, $scope) {
   vm.favPost = function(post) {
     $http.post('/api/posts/' + post._id)
       .then(function (response) {
-        console.log('favorites pushed into user');
-        console.log('this', $('#' + post._id));
-        $('#' + post._id).removeClass('fa-heart-o');
-        $('#' + post._id).addClass('fa-heart');
-        // $('#' + post._id).attr('ng-click', 'home.removefav(post)');
-        // //find a way to change ng-click after changing class
+        console.log('post pushed into users favorites');
+        console.log('this', $("*[data-id=" + post._id + "]").selector);
+        var postSelector = $("*[data-id=" + post._id + "]").selector;
+        $(postSelector).removeClass('fa-heart-o');
+        $(postSelector).addClass('fa-heart');
       });
   };
 
@@ -149,9 +148,9 @@ function HomeController ($http, $scope) {
     $http.delete('/api/favorites/' + post._id)
       .then(function (response) {
         console.log('removed favorite frontend');
-        console.log('removetesting', $('#' + post._id));
-        $('#' + post._id).removeClass('fa-heart');
-        $('#' + post._id).addClass('fa-heart-o');
+        var postSelector = $("*[data-id=" + post._id + "]").selector;
+        $(postSelector).removeClass('fa-heart');
+        $(postSelector).addClass('fa-heart-o');
       });
   };
 
