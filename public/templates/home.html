@@ -10,7 +10,7 @@
 <div ng-if="home.posts.length > 0">
 	<div ng-repeat="post in home.posts">
 		<p> 
-			<strong id="job-title">{{post.title}}</strong> - {{post.description}} <a href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="fa fa-heart-o" data-id={{post._id}} ng-click="toggle(post);"></span></a>
+			<strong id="job-title">{{post.title}}</strong> - {{post.description}} <a ng-show="main.currentUser()" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="fa fa-heart-o" data-id={{post._id}} ng-click="toggle(post);"></span></a>
 		</p>
 	</div>
 </div>

@@ -141,6 +141,7 @@ function HomeController ($http, $scope) {
         var postSelector = $("*[data-id=" + post._id + "]").selector;
         $(postSelector).removeClass('fa-heart-o');
         $(postSelector).addClass('fa-heart');
+        // need to have favorite stay consistent
       });
   };
 
@@ -151,6 +152,7 @@ function HomeController ($http, $scope) {
         var postSelector = $("*[data-id=" + post._id + "]").selector;
         $(postSelector).removeClass('fa-heart');
         $(postSelector).addClass('fa-heart-o');
+        // need to have favorite stay consistent
       });
   };
 
