@@ -7,13 +7,22 @@
 <hr>
 <p ng-if="home.posts.length === 0">No one hiring yet.</p>
 
-<div ng-if="home.posts.length > 0">
-	<div ng-repeat="post in home.posts">
-		<p> 
-			<strong id="job-title">{{post.title}}</strong> - {{post.description}} <a ng-show="main.currentUser()" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="fa fa-heart-o" data-id={{post._id}} ng-click="toggle(post);"></span></a>
-		</p>
-	</div>
-</div>
+<table class="table">
+	<thead>
+		<th>Job Title</th>
+		<th>Job Description</th>
+		<th>Favorite</th>
+	</thead>
+	<tbody ng-repeat="post in home.posts">
+		<tr>
+<!-- 	<div ng-if="home.posts.length > 0"> -->
+			<td><strong id="job-title">{{post.title}}</strong></td>
+			<td>{{post.description}}</td>
+			<td><a ng-show="main.currentUser()" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="fa fa-heart-o" data-id={{post._id}} ng-click="toggle(post);"></span></a></td>
+<!-- 	</div> -->
+		</tr>
+	</tbody>
+</table>
 
 <div ng-show="main.currentUser()">
 	<br>
